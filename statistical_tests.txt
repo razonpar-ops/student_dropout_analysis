@@ -1,0 +1,101 @@
+================================================================================
+STATISTICAL TESTS — Student Dropout Risk 2026 (n = 100,000)
+================================================================================
+Methods
+-------
+- Welch's t-test: compares means of dropouts vs retained students for each
+  numeric variable (does not assume equal variances).
+- Cohen's d: standardized mean difference (0.2 small, 0.5 medium, 0.8 large).
+- Point-biserial r: correlation between the numeric variable and the binary
+  dropout flag.
+- Chi-square test of independence: for categorical/binary variables, with
+  Cramer's V as the effect size (0.1 small, 0.3 medium, 0.5 large).
+- Standardized logistic regression: all predictors scaled to mean 0 / SD 1 so
+  coefficients are directly comparable as a risk ranking.
+
+IMPORTANT CAVEAT FOR ANALYSTS
+-----------------------------
+With n = 100,000, even trivially small differences reach p < 0.001. Effect
+sizes (d, r, V) — not p-values — are the honest basis for conclusions below.
+Genuinely null results (gender, nationality, course type, international
+status) are reported as nulls because their p-values exceed 0.05 AND their
+effect sizes are near zero.
+--------------------------------------------------------------------------------
+
+1. WELCH t-TESTS — NUMERIC VARIABLES (dropouts vs retained)
+------------------------------------------------------------------------------------------------
+Variable                        Dropout  Retained         t     p-value  Cohen d   r_pb
+------------------------------------------------------------------------------------------------
+gpa_semester_1                     1.91      2.88    -218.6     <1e-300    -1.48  -0.57
+gpa_semester_2                     1.44      2.24    -195.1     <1e-300    -1.31  -0.52
+units_failed                       4.22      2.01     152.7     <1e-300     1.13   0.47
+attendance_rate                   67.87     78.50     -91.1     <1e-300    -0.64  -0.28
+missed_deadlines                   3.44      1.87      86.6     <1e-300     0.63   0.28
+assignments_submitted_rate        63.44     75.18     -88.0     <1e-300    -0.61  -0.28
+units_passed                       8.94     10.98     -89.5     <1e-300    -0.58  -0.26
+library_visits_per_month           3.17      4.93     -76.1     <1e-300    -0.49  -0.22
+lms_logins_per_week                6.12      7.82     -66.3     <1e-300    -0.44  -0.20
+weekly_work_hours                 11.45      7.47      56.2     <1e-300     0.39   0.18
+stress_level                       6.86      6.26      42.1     <1e-300     0.28   0.13
+admission_grade                  127.87    135.63     -40.7     <1e-300    -0.28  -0.13
+satisfaction_score                 6.06      6.44     -27.2    1.1e-161    -0.19  -0.09
+extracurricular_activities         0.54      0.62     -23.8    2.8e-124    -0.16  -0.08
+sleep_hours                        6.46      6.60     -17.9     2.3e-71    -0.12  -0.06
+previous_qualification_grade     138.27    140.00     -10.2     2.3e-24    -0.07  -0.03
+units_enrolled                    13.16     12.99       6.5     7.9e-11     0.04   0.02
+commute_time_mins                 23.53     23.13       2.5     1.4e-02     0.02   0.01
+age                               21.53     21.52       0.5     6.1e-01     0.00   0.00
+
+2. CHI-SQUARE TESTS — CATEGORICAL / BINARY VARIABLES
+------------------------------------------------------------------------------------------------
+Variable                       chi2  dof     p-value  Cramers V  dropout rate by group
+------------------------------------------------------------------------------------------------
+family_income_level            3636    2     <1e-300      0.191  High=20.0%  Low=42.9%  Middle=30.0%
+part_time_job                  2617    1     <1e-300      0.162  0=24.7%  1=39.8%
+tuition_up_to_date             1880    1     <1e-300      0.137  0=44.2%  1=28.7%
+first_generation                979    1    5.4e-215      0.099  0=28.1%  1=37.4%
+disability_status               249    1     4.4e-56      0.050  0=30.8%  1=36.5%
+study_mode                       74    2     7.0e-17      0.027  Full-time=32.0%  Online=29.2%  Part-time=33.7%
+mental_health_support            60    1     1.2e-14      0.024  0=31.2%  1=33.7%
+scholarship_holder               49    1     2.0e-12      0.022  0=33.2%  1=31.1%
+nationality                       9   14     8.5e-01      0.009  Australia=32.2%  Brazil=31.8%  Canada=30.1%  China=32.5%  Egypt=31.3%  Germany=32.6%  India=32.2%  Indonesia=33.0%  Mexico=31.4%  Nigeria=31.8%  Pakistan=32.4%  Philippines=31.8%  South Korea=31.9%  UK=32.1%  USA=32.0%
+gender                            2    2     3.6e-01      0.005  Female=31.9%  Male=32.0%  Other=33.4%
+course_type                       1    4     8.7e-01      0.004  Arts & Humanities=32.1%  Business=31.8%  Health Sciences=32.1%  Law & Social Sciences=31.7%  STEM=32.1%
+international_student             0    1     7.7e-01      0.001  0=32.0%  1=32.1%
+
+3. STANDARDIZED LOGISTIC REGRESSION — RISK FACTOR RANKING
+------------------------------------------------------------------------------------------------
+Predictor                       coef(b) Odds Ratio          OR 95% CI     p-value
+------------------------------------------------------------------------------------------------
+gpa_semester_1                   -0.934       0.39       [0.38, 0.41]     0.0e+00
+gpa_semester_2                   -0.595       0.55       [0.53, 0.57]    2.6e-269
+attendance_rate                  -0.431       0.65       [0.64, 0.66]     0.0e+00
+tuition_up_to_date               -0.425       0.65       [0.64, 0.67]     0.0e+00
+missed_deadlines                  0.304       1.35       [1.33, 1.38]    2.8e-222
+lms_logins_per_week              -0.296       0.74       [0.73, 0.76]    3.3e-199
+stress_level                      0.293       1.34       [1.31, 1.37]    1.6e-173
+weekly_work_hours                 0.286       1.33       [1.28, 1.38]     5.4e-49
+assignments_submitted_rate       -0.270       0.76       [0.75, 0.78]    5.2e-165
+units_failed                      0.264       1.30       [1.27, 1.34]     1.0e-87
+library_visits_per_month         -0.217       0.80       [0.79, 0.82]    8.8e-102
+satisfaction_score               -0.171       0.84       [0.83, 0.86]     1.7e-68
+first_generation                  0.153       1.17       [1.14, 1.19]     4.2e-61
+scholarship_holder               -0.149       0.86       [0.85, 0.88]     6.3e-56
+admission_grade                  -0.121       0.89       [0.87, 0.90]     1.8e-37
+sleep_hours                      -0.056       0.95       [0.93, 0.96]     4.1e-09
+disability_status                 0.034       1.04       [1.02, 1.05]     1.8e-04
+commute_time_mins                 0.029       1.03       [1.01, 1.05]     1.9e-03
+age                              -0.026       0.97       [0.96, 0.99]     4.9e-03
+mental_health_support            -0.016       0.98       [0.97, 1.00]     9.2e-02
+international_student             0.012       1.01       [0.99, 1.03]     1.9e-01
+part_time_job                    -0.007       0.99       [0.96, 1.03]     7.3e-01
+
+Pseudo R-squared (McFadden): 0.418
+Interpretation: negative coefficients = protective (lower dropout odds);
+positive = risk-increasing. Because every predictor is standardized, the SIZE
+of each coefficient is a fair measure of that factor's relative importance.
+GPA and attendance dominate; tuition status is the top financial factor;
+stress and work hours add independent risk on top of academics.
+================================================================================
+Generated from the full 100,000-record dataset. No sampling was used;
+every statistic is computed on the complete data.

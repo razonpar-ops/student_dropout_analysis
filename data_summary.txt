@@ -1,0 +1,62 @@
+================================================================================
+DATA SUMMARY — Student Dropout Risk 2026
+Dataset: student_dropout_risk_2026.csv
+================================================================================
+
+1. DATASET SHAPE
+--------------------------------------------------------------------------------
+- Records (students): 100,000
+- Variables (columns): 34 (33 features + 1 target)
+- Target variable: dropout (1 = dropped out, 0 = retained)
+
+2. DATA QUALITY CHECKS — ALL PASSED
+--------------------------------------------------------------------------------
+- Missing values: 0 (none, in any of the 34 columns)
+- Duplicate person_id entries: 0
+- Fully duplicated rows: 0
+- Range validation: 12 key variables checked against plausible bounds
+  (age 15-30, GPAs 0-4, rates 0-100, sleep 4-10h, work 0-40h, etc.) — 0 violations
+- Conclusion: the dataset is complete and internally consistent; no cleaning
+  or imputation was required before analysis.
+
+3. COLUMN INVENTORY AND TYPES
+--------------------------------------------------------------------------------
+person_id (int) · age (int) · gender (text: Female/Male/Other) · nationality (text, 15 countries)
+first_generation (0/1) · disability_status (0/1) · family_income_level (Low/Middle/High)
+scholarship_holder (0/1) · tuition_up_to_date (0/1) · part_time_job (0/1) · weekly_work_hours (int, 0-40)
+course_type (text, 5 fields) · study_mode (Full-time/Part-time/Online) · semester (int, 1-8)
+international_student (0/1) · admission_grade (float, 0-200) · previous_qualification_grade (float, 0-200)
+units_enrolled / units_passed / units_failed (int) · gpa_semester_1 / gpa_semester_2 (float, 0-4)
+attendance_rate (float, 0-100%) · assignments_submitted_rate (float, 0-100%)
+library_visits_per_month (int) · lms_logins_per_week (float) · extracurricular_activities (int)
+missed_deadlines (int) · stress_level (int, 1-10) · mental_health_support (0/1)
+satisfaction_score (int, 1-10) · commute_time_mins (int) · sleep_hours (float) · dropout (0/1 TARGET)
+
+4. TARGET BALANCE
+--------------------------------------------------------------------------------
+- Retained (dropout = 0): 67,996 students (68.0%)
+- Dropped out (dropout = 1): 32,004 students (32.0%)
+- The 32.0% dropout rate is high but realistic for a risk-scenario dataset;
+  the classes are imbalanced roughly 2:1, so accuracy alone would be a poor
+  metric for any predictive model built on this data.
+
+5. WHO IS IN THE DATA (KEY COMPOSITION FACTS)
+--------------------------------------------------------------------------------
+- Gender: Female 50,731 (50.7%) | Male 47,224 (47.2%) | Other 2,045 (2.0%)
+- Nationality: 15 countries; largest groups USA 29,979, India 11,994, China 10,013
+- Family income: Middle 40,213 | Low 34,809 | High 24,978
+- Course types (5): STEM 30,141 | Business 24,986 | Arts & Humanities 18,024 |
+  Health Sciences 14,941 | Law & Social Sciences 11,908
+- Study mode: Full-time 65,096 | Part-time 21,975 | Online 12,929
+- Scholarship holders: 58,970 (59.0%) | First-generation students: 42,013 (42.0%)
+- Students with a part-time job: 48,192 (48.2%) | International: 18,094 (18.1%)
+- Age range 15-30, mean 21.4
+
+6. AVERAGE STUDENT PROFILE (ALL 100,000 RECORDS)
+--------------------------------------------------------------------------------
+- GPA semester 1: 2.57 / 4.0   | GPA semester 2: 1.98 / 4.0
+- Attendance rate: 75.1%  | Assignment submission: 71.4%
+- Admission grade: 133.1 / 200
+- Weekly work hours: 8.7 | Missed deadlines: 2.4
+- Stress level: 6.4 / 10 | Sleep: 6.6 h | Satisfaction: 6.3 / 10
+- Library visits/month: 4.4 | LMS logins/week: 7.3

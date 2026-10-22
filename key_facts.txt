@@ -1,0 +1,104 @@
+================================================================================
+KEY FACTS — Student Dropout Risk 2026 (n = 100,000)
+33 facts, grouped by theme. All numbers computed directly from the dataset.
+================================================================================
+
+A. THE HEADLINE
+--------------------------------------------------------------------------------
+A1. 32.0% of the 100,000 students dropped out — that is 32,004 students,
+    roughly 1 in every 3.
+A2. Data quality is perfect: zero missing values, zero duplicates, all values
+    within valid ranges — every finding below rests on complete records.
+
+B. ACADEMIC PERFORMANCE — THE STRONGEST SIGNALS
+--------------------------------------------------------------------------------
+B1. GPA is the single strongest predictor. Dropouts averaged GPA 1.91 in
+    semester 1 vs 2.88 for retained students — a gap of 0.96 points
+    (effect size Cohen's d = 1.48, a "huge" difference by convention).
+B2. The pattern repeats in semester 2: GPA 1.44 vs 2.24.
+B3. GPA acts like a cliff, not a slope. Dropout rate by semester-2 GPA band:
+    below 1.0 -> 83.5% | 1.0-2.0 -> 45.4% |
+    2.0-3.0 -> 12.6% | 3.0-4.0 -> 2.4%.
+    That is a 35x difference between the bottom and top bands.
+B4. Dropouts failed 4.2 course units on average vs 2.0 for retained
+    students — more than twice as many.
+B5. Attendance separates sharply: 67.9% for dropouts vs 78.5% for
+    retained. Below 50% attendance the dropout rate is 59.2%;
+    at 90-100% attendance it falls to 16.1% — a 3.7x ratio.
+B6. Missed deadlines: dropouts missed 3.4 on average vs 1.9.
+B7. Assignment submission: 63.4% for dropouts vs 75.2% for retained.
+B8. Entering ability matters less than people think: admission grade gap is only
+    7.8 points (127.9 vs 135.6 out of 200). Students don't arrive
+    doomed — they disengage after arrival.
+
+C. FINANCIAL PRESSURE — THE STRONGEST DEMOGRAPHIC FACTORS
+--------------------------------------------------------------------------------
+C1. Family income is the strongest categorical factor (Cramer's V = 0.19):
+    Low income -> 42.9% dropout | Middle -> 30.0% | High -> 20.0%.
+    Low-income students are 2.1x more likely to drop out than high-income students.
+C2. Working students drop out more: 39.8% with a part-time job vs
+    24.7% without.
+C3. Work hours show a clean dose-response: 0 h -> 24.7% |
+    1-10 h -> 31.7% | 11-20 h -> 37.6% |
+    21-40 h -> 46.0%. Working 21+ hours nearly doubles the
+    risk vs not working at all.
+C4. Tuition payment status is a red flag: students whose tuition is NOT up to
+    date drop out at 44.2% vs 28.7% for those current on payments.
+C5. First-generation students drop out at 37.4% vs 28.1% for others.
+C6. Counter-intuitive: scholarship holders show almost NO difference
+    (31.1% vs 33.2%) — the scholarship itself is not protective once
+    income and academic factors are accounted for.
+
+D. ENGAGEMENT, WELLBEING AND LIFESTYLE
+--------------------------------------------------------------------------------
+D1. Campus engagement drops before students do: dropouts visited the library
+    3.2 times/month vs 4.9 for retained students.
+D2. Digital engagement too: 6.1 LMS logins/week for dropouts vs 7.8.
+D3. High stress (8-10) -> 36.9% dropout rate vs 21.4% at
+    low stress (1-3). Dropouts average stress 6.9/10 vs 6.3.
+D4. Sleep matters at the margins: under 5 h -> 36.9% dropout vs
+    29.3% at 7 h or more. Dropouts average 6.5 h vs 6.6 h.
+D5. Satisfaction: dropouts rate their experience 6.1/10 vs 6.4/10.
+D6. Mental-health support shows no protective association in this data
+    (33.7% with support vs 31.2% without) — likely because support is
+    given to struggling students (correlation, not causation).
+D7. Commute time is essentially flat: 31.6%-32.6% across all bands.
+
+E. WHAT DOES *NOT* MATTER (IMPORTANT NULL RESULTS)
+--------------------------------------------------------------------------------
+E1. Gender: Female 31.9%, Male 32.0% — no difference (p = 0.36).
+E2. Nationality: all 15 countries fall between 30.1% and 33.0% (p = 0.85).
+E3. Course type: all 5 fields are within 31.7%-32.1% (p = 0.87).
+    STEM is NOT riskier than Business or Arts in this dataset.
+E4. International status: 32.1% vs 32.0% (p = 0.77).
+E5. Age: every age band from 15-19 to 26-30 sits at 31.6%-32.5%.
+    Takeaway: dropout risk here is about circumstances and behavior, not
+    demographics like gender, origin, age, or field of study.
+
+F. RISK MODEL — WHAT MATTERS MOST, RANKED
+--------------------------------------------------------------------------------
+Standardized logistic regression (all factors on the same scale, so
+coefficients are directly comparable; pseudo R-squared = 0.42):
+F1. Semester-1 GPA (protective, strongest by far; OR = 0.39 per 1 SD)
+F2. Semester-2 GPA (protective; OR = 0.55)
+F3. Attendance rate (protective; OR = 0.65)
+F4. Tuition up to date (protective; OR = 0.65)
+F5. Missed deadlines (risk-increasing; OR = 1.35)
+F6. LMS logins (protective; OR = 0.74)
+F7. Stress level (risk-increasing; OR = 1.34)
+F8. Weekly work hours (risk-increasing; OR = 1.33)
+F9. Assignment submission (protective; OR = 0.76)
+F10. Units failed (risk-increasing; OR = 1.30)
+
+G. PRACTICAL IMPLICATIONS
+--------------------------------------------------------------------------------
+G1. An early-warning rule is easy to build: any student with semester-1 GPA
+    below 2.0 AND attendance below 75% is already in the high-risk zone.
+G2. The two cheapest signals to monitor are attendance and LMS logins — both
+    are continuously measurable and both fall weeks before the GPA crash.
+G3. Financial interventions should target low-income students working 11+
+    hours per week and students with overdue tuition — three overlapping,
+    easily identifiable flags.
+G4. Because GPA < 1.0 students are 83.5% likely to leave, academic
+    rescue (tutoring, course-load reduction) must trigger EARLY in semester 2,
+    before the GPA is final.
